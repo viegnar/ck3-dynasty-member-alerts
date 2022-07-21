@@ -121,7 +121,11 @@ action_dynasty_member_can_be_landed = {
 				limit = {
 					house = root.house
 					is_adult = yes
+					is_ruler = no
 					is_claimant = no
+					any_heir_to_title = {
+						count <= 0
+					}
 					OR = {
 						AND = {
 							age <= 30
@@ -153,7 +157,11 @@ action_dynasty_member_can_be_landed = {
 			OR = {
 				father = {
 					house = root.house
+					is_ruler = no
 					is_claimant = no
+					any_heir_to_title = {
+						count <= 0
+					}
 					root = {
 						is_character_interaction_valid = {
 							recipient = prev
@@ -163,7 +171,11 @@ action_dynasty_member_can_be_landed = {
 				}
 				mother = {
 					house = root.house
+					is_ruler = no
 					is_claimant = no
+					any_heir_to_title = {
+						count <= 0
+					}
 					root = {
 						is_character_interaction_valid = {
 							recipient = prev
