@@ -4,21 +4,19 @@ action_dynasty_member_can_be_invited = {
 	check_create_action = {
 		root.dynasty = {
 			every_dynasty_member = {
-				if = {
-					limit = {
-						root = {
-							is_character_interaction_potentially_accepted = {
-								recipient = prev
-								interaction = invite_to_court_interaction
-							}
+				limit = {
+					root = {
+						is_character_interaction_potentially_accepted = {
+							recipient = prev
+							interaction = invite_to_court_interaction
 						}
 					}
-	
-					try_create_important_action = {
-						important_action_type = action_dynasty_member_can_be_invited
-						actor = root
-						recipient = this
-					}
+				}
+
+				try_create_important_action = {
+					important_action_type = action_dynasty_member_can_be_invited
+					actor = root
+					recipient = this
 				}
 			}
 		}
@@ -38,30 +36,28 @@ action_dynasty_member_can_marry = {
 	priority = 99
 	check_create_action = {
 		every_courtier = {
-			if = {
-				limit = {
-					NAND = {
-						is_landed = yes
-						is_close_family_of = root
-					}
-					is_married = no
-					is_betrothed = no
-					is_adult = yes
-					dynasty = root.dynasty
-					can_marry_trigger = yes
-					root = {
-						is_character_interaction_valid = {
-							recipient = prev
-							interaction = marry_off_interaction
-						}
-					}
-					is_visibly_fertile = yes
+			limit = {
+				NAND = {
+					is_landed = yes
+					is_close_family_of = root
 				}
-				try_create_important_action = {
-					important_action_type = action_dynasty_member_can_marry
-					actor = root
-					recipient = this
+				is_married = no
+				is_betrothed = no
+				is_adult = yes
+				dynasty = root.dynasty
+				can_marry_trigger = yes
+				root = {
+					is_character_interaction_valid = {
+						recipient = prev
+						interaction = marry_off_interaction
+					}
 				}
+				is_visibly_fertile = yes
+			}
+			try_create_important_action = {
+				important_action_type = action_dynasty_member_can_marry
+				actor = root
+				recipient = this
 			}
 		}
 	}
