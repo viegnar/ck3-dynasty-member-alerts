@@ -128,7 +128,7 @@ action_dynasty_member_can_be_landed = {
 					}
 					OR = {
 						AND = {
-							gender = male
+							is_female = no
 							root = {
 								OR = {
 									has_realm_law = male_only_law
@@ -138,7 +138,7 @@ action_dynasty_member_can_be_landed = {
 							}
 						}
 						AND = {
-							gender = female
+							is_female = yes
 							root = {
 								OR = {
 									has_realm_law = female_only_law
