@@ -128,6 +128,28 @@ action_dynasty_member_can_be_landed = {
 					}
 					OR = {
 						AND = {
+							gender = male
+							root = {
+								OR = {
+									has_realm_law = male_only_law
+									has_realm_law = male_preference_law
+									has_realm_law = equal_law
+								}
+							}
+						}
+						AND = {
+							gender = female
+							root = {
+								OR = {
+									has_realm_law = female_only_law
+									has_realm_law = female_preference_law
+									has_realm_law = equal_law
+								}
+							}
+						}
+					}
+					OR = {
+						AND = {
 							age <= 30
 							is_visibly_fertile = yes
 						}
