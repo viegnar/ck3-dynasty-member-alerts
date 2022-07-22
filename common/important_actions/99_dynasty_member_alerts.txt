@@ -82,7 +82,7 @@ action_can_assign_guardian_to_dynasty_kid = {
 				}
 				is_adult = no
 				num_of_relation_guardian = 0
-				age >= 3 # childhood_education_start_age # 6
+				age >= 3
 				dynasty = root.dynasty
 				exists = liege
 				liege = root
