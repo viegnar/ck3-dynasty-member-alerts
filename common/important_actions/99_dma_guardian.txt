@@ -7,12 +7,13 @@
 				NOT = {
 					is_child_of = root
 				}
-				is_adult = no
-				num_of_relation_guardian = 0
-				age >= 3
 				dynasty = root.dynasty
 				exists = liege
 				liege = root
+				is_adult = no
+				age >= childhood_education_start_age
+				num_of_relation_guardian = 0
+				has_education_focus_trigger = yes
 				root = {
 					is_character_interaction_valid = {
 						recipient = prev

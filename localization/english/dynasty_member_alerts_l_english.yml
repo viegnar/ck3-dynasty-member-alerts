@@ -33,6 +33,15 @@
   action_can_assign_guardian_to_dynasty_kid_unimportant:1 "@warning_icon!#X You have many older children#!"
   action_can_assign_guardian_to_dynasty_kid_HELP:0 "\n\n#help Your children can be assigned a Guardian, who will transfer their [skills|E] and other knowledge to the child. A Guardian with a good [education_trait|E] will transfer it to the child, while letting a [vassal|E] educate your child will raise their [opinion|E] of you. If you want more control, you can educate the child yourself. #!"
 
+  action_can_set_education_focus_to_dynasty_kid:0 "Child needs an [education_focus|E]"
+  action_can_set_education_focus_to_dynasty_kid_label:1 "[recipient.GetShortUINameNoTooltip] needs an [education_focus|E]"
+  action_can_set_education_focus_to_dynasty_kid_desc:2 "You can choose an [education_focus|E] for [recipient.GetShortUIName].\n\n$FOCUS_BELOW_MIN_AGE$"
+  action_can_set_education_focus_to_dynasty_kid_combined_group_label:2 "Dynasty children need education focus"
+  action_can_set_education_focus_to_dynasty_kid_combined_group_name:0 "Children need an [education_focus|E]."
+  action_can_set_education_focus_to_dynasty_kid_combined_group_description:2 "You can choose [education_focus|E] for children of your dynasty."
+  action_can_set_education_focus_to_dynasty_kid_combined_label:1 "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
+  action_can_set_education_focus_to_dynasty_kid_click:0 "#I Click to choose an [education_focus|E]#!"
+
   action_dynasty_member_can_be_landed:0 "[recipient.GetShortUINameNoTooltip] can be landed"
   action_dynasty_member_can_be_landed_label:0 "$action_dynasty_member_can_be_landed$"
   action_dynasty_member_can_be_landed_desc:2 "Your [actor.Custom2('RelationToMe', recipient)] [recipient.GetShortUIName] wants some unimportant land to prove [recipient.GetHerselfHimself]."
