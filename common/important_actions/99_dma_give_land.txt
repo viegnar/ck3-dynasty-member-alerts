@@ -1,5 +1,5 @@
 ﻿action_dynasty_member_can_be_landed = {
-	priority = 97
+	priority = 96
 	combine_into_one = yes
 	check_create_action = {
 		root.dynasty = {

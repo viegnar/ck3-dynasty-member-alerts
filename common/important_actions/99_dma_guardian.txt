@@ -1,5 +1,5 @@
 ﻿action_can_assign_guardian_to_dynasty_kid = {
-	priority = 98
+	priority = 97
 	combine_into_one = yes
 	check_create_action = {
 		every_courtier = {
