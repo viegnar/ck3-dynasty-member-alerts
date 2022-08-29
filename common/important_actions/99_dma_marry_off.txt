@@ -4,8 +4,7 @@
 	check_create_action = {
 		every_courtier = {
 			limit = {
-				NAND = {
-					is_landed = yes
+				NOT = {
 					is_close_family_of = root
 				}
 				is_married = no

@@ -4,9 +4,6 @@
 	check_create_action = {
 		every_courtier = {
 			limit = {
-				NOT = {
-					is_child_of = root
-				}
 				dynasty = root.dynasty
 				exists = liege
 				liege = root
