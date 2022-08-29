@@ -1,0 +1,39 @@
+﻿action_dynasty_member_can_marry = {
+	combine_into_one = yes
+	priority = 99
+	check_create_action = {
+		every_courtier = {
+			limit = {
+				NAND = {
+					is_landed = yes
+					is_close_family_of = root
+				}
+				is_married = no
+				is_betrothed = no
+				is_adult = yes
+				dynasty = root.dynasty
+				can_marry_trigger = yes
+				root = {
+					is_character_interaction_valid = {
+						recipient = prev
+						interaction = marry_off_interaction
+					}
+				}
+				is_visibly_fertile = yes
+			}
+			try_create_important_action = {
+				important_action_type = action_dynasty_member_can_marry
+				actor = root
+				recipient = this
+			}
+		}
+	}
+
+	effect = {
+		open_interaction_window = {
+			interaction = marry_off_interaction
+			actor = scope:actor
+			recipient = scope:recipient
+		}
+	}
+}

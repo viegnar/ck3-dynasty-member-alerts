@@ -1,0 +1,32 @@
+﻿action_dynasty_member_can_be_invited = {
+	combine_into_one = yes
+	priority = 100
+	check_create_action = {
+		root.dynasty = {
+			every_dynasty_member = {
+				limit = {
+					root = {
+						is_character_interaction_potentially_accepted = {
+							recipient = prev
+							interaction = invite_to_court_interaction
+						}
+					}
+				}
+
+				try_create_important_action = {
+					important_action_type = action_dynasty_member_can_be_invited
+					actor = root
+					recipient = this
+				}
+			}
+		}
+	}
+
+	effect = {
+		open_interaction_window = {
+			interaction = invite_to_court_interaction
+			actor = scope:actor
+			recipient = scope:recipient
+		}
+	}
+}

@@ -1,0 +1,40 @@
+﻿action_can_assign_guardian_to_dynasty_kid = {
+	priority = 98
+	combine_into_one = yes
+	check_create_action = {
+		every_courtier = {
+			limit = {
+				NOT = {
+					is_child_of = root
+				}
+				is_adult = no
+				num_of_relation_guardian = 0
+				age >= 3
+				dynasty = root.dynasty
+				exists = liege
+				liege = root
+				root = {
+					is_character_interaction_valid = {
+						recipient = prev
+						interaction = educate_child_interaction
+					}
+				}
+			}
+			try_create_important_action = {
+				important_action_type = action_can_assign_guardian_to_dynasty_kid
+				actor = root
+				recipient = this
+				secondary_recipient = this
+			}
+		}	
+	}
+
+	effect = {
+		open_interaction_window = {
+			interaction = educate_child_interaction
+			actor = scope:actor
+			recipient = scope:actor
+			secondary_recipient = scope:secondary_recipient
+		}
+	}
+}
