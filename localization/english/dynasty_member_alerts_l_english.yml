@@ -28,7 +28,7 @@
   action_can_assign_guardian_to_dynasty_kid_combined_group_description: "You can designate [guardians|E] for your children.$action_can_assign_guardian_to_dynasty_kid_HELP$"
   action_can_assign_guardian_to_dynasty_kid_label: "You can designate a guardian for [recipient.GetShortUINameNoTooltip]"
   action_can_assign_guardian_to_dynasty_kid_combined_label: "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
-  action_can_assign_guardian_to_dynasty_kid_click: "#I Click to designate a [guardian|E]#!"
+  action_can_assign_guardian_to_dynasty_kid_click: "#I Click to designate a [guardian|E] for [recipient.GetHerHim]#!"
   action_can_assign_guardian_to_dynasty_kid_combined_unimportant: "@warning_icon!#X Only your younger children lacks [guardians|E]#!"
   action_can_assign_guardian_to_dynasty_kid_unimportant: "@warning_icon!#X You have many older children#!"
   action_can_assign_guardian_to_dynasty_kid_HELP: "\n\n#help Your children can be assigned a Guardian, who will transfer their [skills|E] and other knowledge to the child. A Guardian with a good [education_trait|E] will transfer it to the child, while letting a [vassal|E] educate your child will raise their [opinion|E] of you. If you want more control, you can educate the child yourself. #!"
@@ -40,7 +40,7 @@
   action_can_set_education_focus_to_dynasty_kid_combined_group_name: "Children need an [education_focus|E]."
   action_can_set_education_focus_to_dynasty_kid_combined_group_description: "You can choose [education_focus|E] for children of your dynasty."
   action_can_set_education_focus_to_dynasty_kid_combined_label: "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
-  action_can_set_education_focus_to_dynasty_kid_click: "#I Click to choose an [education_focus|E]#!"
+  action_can_set_education_focus_to_dynasty_kid_click: "#I Click to choose an [education_focus|E] for [recipient.GetHerHim]#!"
 
   action_dynasty_member_can_be_landed: "[recipient.GetShortUINameNoTooltip] can be landed"
   action_dynasty_member_can_be_landed_label: "$action_dynasty_member_can_be_landed$"
