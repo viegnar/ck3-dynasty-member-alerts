@@ -4,9 +4,10 @@
 	check_create_action = {
 		every_courtier = {
 			limit = {
-				NOT = {
-					is_close_family_of = root
-				}
+				# is not necessary since the native action is disabled
+				# NOT = {
+				# 	is_close_family_of = root
+				# }
 				is_married = no
 				is_betrothed = no
 				is_adult = yes
