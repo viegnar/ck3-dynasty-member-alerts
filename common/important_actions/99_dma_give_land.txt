@@ -5,50 +5,7 @@
 		root.dynasty = {
 			every_dynasty_member = {
 				limit = {
-					house = root.house
-					is_adult = yes
-					is_ruler = no
-					is_claimant = no
-					any_heir_to_title = {
-						count <= 0
-					}
-					OR = {
-						AND = {
-							is_female = no
-							root = {
-								OR = {
-									has_realm_law = male_only_law
-									has_realm_law = male_preference_law
-									has_realm_law = equal_law
-								}
-							}
-						}
-						AND = {
-							is_female = yes
-							root = {
-								OR = {
-									has_realm_law = female_only_law
-									has_realm_law = female_preference_law
-									has_realm_law = equal_law
-								}
-							}
-						}
-					}
-					OR = {
-						AND = {
-							age <= 30
-							is_visibly_fertile = yes
-						}
-						any_child = {
-							count > 0
-						}
-					}
-					root = {
-						is_character_interaction_valid = {
-							recipient = prev
-							interaction = grant_titles_interaction
-						}
-					}
+					can_be_landed_safely = yes
 				}
 				try_create_important_action = {
 					important_action_type = action_dynasty_member_can_be_landed
@@ -62,35 +19,9 @@
 
 	unimportant = {
 		scope:recipient = {
-			OR = {
-				father = {
-					house = root.house
-					is_ruler = no
-					is_claimant = no
-					any_heir_to_title = {
-						count <= 0
-					}
-					root = {
-						is_character_interaction_valid = {
-							recipient = prev
-							interaction = grant_titles_interaction
-						}
-					}
-				}
-				mother = {
-					house = root.house
-					is_ruler = no
-					is_claimant = no
-					any_heir_to_title = {
-						count <= 0
-					}
-					root = {
-						is_character_interaction_valid = {
-							recipient = prev
-							interaction = grant_titles_interaction
-						}
-					}
-				}
+			any_parent = {
+				can_be_landed_safely = yes
+				count > 0
 			}
 		}
 	}

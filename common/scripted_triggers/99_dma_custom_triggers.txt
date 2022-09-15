@@ -1,0 +1,77 @@
+﻿is_heir_of_their_parents = {
+	OR = {
+		AND = {
+			exists = father
+			is_heir_of = father
+		}
+		AND = {
+			exists = mother
+			is_heir_of = mother
+		}
+	}
+}
+
+is_not_an_actual_heir = {
+	is_adult = yes
+	is_ruler = no
+	is_claimant = no
+	any_heir_to_title = {
+		count <= 0
+	}
+	any_parent = {
+		trigger_if = {
+			limit = {
+				is_ruler = yes
+			}
+			prev = {
+				is_heir_of_their_parents = no
+			}
+		}
+		trigger_else = {
+			is_not_an_actual_heir = yes
+		}
+		count = all
+	}
+}
+
+can_be_landed_safely = {
+	house = root.house
+	is_not_an_actual_heir = yes
+	OR = { # gender law
+		AND = {
+			is_female = no
+			root = {
+				OR = {
+					has_realm_law = male_only_law
+					has_realm_law = male_preference_law
+					has_realm_law = equal_law
+				}
+			}
+		}
+		AND = {
+			is_female = yes
+			root = {
+				OR = {
+					has_realm_law = female_only_law
+					has_realm_law = female_preference_law
+					has_realm_law = equal_law
+				}
+			}
+		}
+	}
+	OR = { # fertility
+		AND = {
+			age <= 30
+			is_visibly_fertile = yes
+		}
+		any_child = {
+			count > 0
+		}
+	}
+	root = {
+		is_character_interaction_valid = {
+			recipient = prev
+			interaction = grant_titles_interaction
+		}
+	}
+}
