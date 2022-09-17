@@ -36,6 +36,9 @@ is_not_an_actual_heir = {
 
 can_be_landed_safely = {
 	house = root.house
+	NOT = {
+		has_trait = bastard	
+	}
 	is_not_an_actual_heir = yes
 	OR = { # gender law
 		AND = {
