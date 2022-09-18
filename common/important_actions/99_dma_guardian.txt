@@ -5,7 +5,7 @@
 		every_courtier = {
 			limit = {
 				NOT = {
-					is_close_family_of = root
+					is_child_of = root
 				}
 				dynasty = root.dynasty
 				exists = liege
