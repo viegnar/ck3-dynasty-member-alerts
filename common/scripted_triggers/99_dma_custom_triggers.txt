@@ -1,4 +1,23 @@
-﻿is_heir_of_their_parents = {
+﻿has_pressed_claims = {
+	any_claim = {
+		explicit = yes
+		pressed = yes
+	}
+}
+
+has_implicit_claims = {
+	any_claim = {
+		explicit = no
+	}
+}
+
+is_going_to_inherit_titles = {
+	any_heir_to_title = {
+		count > 0
+	}
+}
+
+is_heir_of_their_parents = {
 	OR = {
 		AND = {
 			exists = father
@@ -11,13 +30,17 @@
 	}
 }
 
+is_not_an_heir_parent = {
+	is_going_to_inherit_titles = no
+	has_pressed_claims = no
+	has_implicit_claims = no
+}
+
 is_not_an_actual_heir = {
 	is_adult = yes
 	is_ruler = no
 	is_claimant = no
-	any_heir_to_title = {
-		count <= 0
-	}
+	is_going_to_inherit_titles = no
 	any_parent = {
 		trigger_if = {
 			limit = {
@@ -28,7 +51,7 @@ is_not_an_actual_heir = {
 			}
 		}
 		trigger_else = {
-			is_not_an_actual_heir = yes
+			is_not_an_heir_parent = yes
 		}
 		count = all
 	}
