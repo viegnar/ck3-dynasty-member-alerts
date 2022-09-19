@@ -27,6 +27,11 @@
 	}
 
 	effect = {
+		scope:recipient = {
+			open_view_data = {
+				view = character
+			}
+		}
 		open_interaction_window = {
 			interaction = grant_titles_interaction
 			actor = scope:actor

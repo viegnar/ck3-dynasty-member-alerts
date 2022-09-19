@@ -31,6 +31,11 @@
 	}
 
 	effect = {
+		scope:recipient = {
+			open_view_data = {
+				view = character
+			}
+		}
 		open_interaction_window = {
 			interaction = educate_child_interaction
 			actor = scope:actor
