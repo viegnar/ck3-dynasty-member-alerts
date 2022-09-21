@@ -16,7 +16,7 @@
   action_dynasty_member_can_marry_click: "#I Click to find a suitable [spouse|E]#!"
   action_dynasty_member_can_marry_combined_group_name: "Dynasty members can get married"
   action_dynasty_member_can_marry_combined_group_label: "Dynasty members can get married"
-  action_dynasty_member_can_marry_combined_group_description: "Several of your [dynasty_member|E]s are eligible to be wed.\n\n#help Arranging [marriages|E] for them would benefit your [dynasty|E] and could let you form new [alliances|E].#!"
+  action_dynasty_member_can_marry_combined_group_description: "Several of your [dynasty|E] members are eligible to be wed.\n\n#help Arranging [marriages|E] for them would benefit your [dynasty|E] and could let you form new [alliances|E].#!"
   action_dynasty_member_can_marry_combined_label: "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
   action_dynasty_member_can_marry_combined_unimportant: "$action_dynasty_member_can_marry_unimportant$"
   action_dynasty_member_can_marry_unimportant: "@warning_icon!#X You should focus on marrying off your oldest children"
