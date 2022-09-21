@@ -2,22 +2,30 @@
 	priority = 98
 	combine_into_one = yes
 	check_create_action = {
-		every_courtier = {
+		if = {
 			limit = {
-				dynasty = root.dynasty
-				exists = liege
-				liege = root
-				is_adult = no
-				age >= 3
-				has_education_focus_trigger = no
+				has_character_flag = is_organizing_dynasty_members
+				NOT = {
+					has_global_variable = dynasty_member_alerts_education_disabled
+				}
 			}
-			try_create_important_action = {
-				important_action_type = action_can_set_education_focus_to_dynasty_kid
-				actor = root
-				recipient = this
-				secondary_recipient = this
+			every_courtier = {
+				limit = {
+					dynasty = root.dynasty
+					exists = liege
+					liege = root
+					is_adult = no
+					age >= 3
+					has_education_focus_trigger = no
+				}
+				try_create_important_action = {
+					important_action_type = action_can_set_education_focus_to_dynasty_kid
+					actor = root
+					recipient = this
+					secondary_recipient = this
+				}
 			}
-		}	
+		}
 	}
 
 	effect = {

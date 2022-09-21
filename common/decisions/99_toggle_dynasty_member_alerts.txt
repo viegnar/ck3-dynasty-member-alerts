@@ -1,0 +1,69 @@
+﻿enable_dynasty_member_alerts_decision = {
+	picture = "gfx/interface/illustrations/decisions/dynasty_member_alerts.dds"
+	ai_check_interval = 0
+
+	sort_order = -6
+
+	desc = enable_dynasty_member_alerts_decision_desc
+	selection_tooltip = enable_dynasty_member_alerts_decision_tooltip
+	
+	is_shown = {
+		is_landed = yes
+		NOT = {
+			has_character_flag = is_organizing_dynasty_members
+		}
+	}
+
+	effect = {
+		custom_tooltip = enable_dynasty_member_alerts_decision_effect
+		hidden_effect = {
+			add_character_flag = is_organizing_dynasty_members
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+
+	widget = {
+		gui = "decision_view_widget_dynasty_member_alerts"
+	}
+}
+
+disable_dynasty_member_alerts_decision = {
+	picture = "gfx/interface/illustrations/decisions/dynasty_member_alerts.dds"
+	ai_check_interval = 0
+
+	sort_order = -6
+
+	desc = disable_dynasty_member_alerts_decision_desc
+	selection_tooltip = disable_dynasty_member_alerts_decision_tooltip
+
+	is_shown = {
+		is_landed = yes
+		has_character_flag = is_organizing_dynasty_members
+	}
+
+	effect = {
+		custom_tooltip = disable_dynasty_member_alerts_decision_effect
+		hidden_effect = {
+			remove_character_flag = is_organizing_dynasty_members
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+
+	widget = {
+		gui = "decision_view_widget_dynasty_member_alerts"
+	}
+}

@@ -1,0 +1,79 @@
+﻿dynasty_member_alerts_toggle_invitations = {
+	scope = character
+	is_shown = {
+		NOT = {
+			has_global_variable = dynasty_member_alerts_invitations_disabled
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_global_variable = dynasty_member_alerts_invitations_disabled
+			}
+			remove_global_variable = dynasty_member_alerts_invitations_disabled
+		}
+		else = {
+			set_global_variable = dynasty_member_alerts_invitations_disabled
+		}
+	}
+}
+
+dynasty_member_alerts_toggle_education = {
+	scope = character
+	is_shown = {
+		NOT = {
+			has_global_variable = dynasty_member_alerts_education_disabled
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_global_variable = dynasty_member_alerts_education_disabled
+			}
+			remove_global_variable = dynasty_member_alerts_education_disabled
+		}
+		else = {
+			set_global_variable = dynasty_member_alerts_education_disabled
+		}
+	}
+}
+
+dynasty_member_alerts_toggle_marriage = {
+	scope = character
+	is_shown = {
+		NOT = {
+			has_global_variable = dynasty_member_alerts_marriage_disabled
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_global_variable = dynasty_member_alerts_marriage_disabled
+			}
+			remove_global_variable = dynasty_member_alerts_marriage_disabled
+		}
+		else = {
+			set_global_variable = dynasty_member_alerts_marriage_disabled
+		}
+	}
+}
+
+dynasty_member_alerts_toggle_giving_land = {
+	scope = character
+	is_shown = {
+		NOT = {
+			has_global_variable = dynasty_member_alerts_giving_land_disabled
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_global_variable = dynasty_member_alerts_giving_land_disabled
+			}
+			remove_global_variable = dynasty_member_alerts_giving_land_disabled
+		}
+		else = {
+			set_global_variable = dynasty_member_alerts_giving_land_disabled
+		}
+	}
+}

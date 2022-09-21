@@ -1,0 +1,105 @@
+dynasty_member_alerts_options_widget = {}
+
+types DynastyMemberAlertsDecisionWidget
+{
+	type dynasty_member_alerts_options_widget = flowcontainer
+	{
+		name = "decision_view_widget_dynasty_member_alerts"
+		direction = vertical
+		minimumsize = { 514 -1 }
+		maximumsize = { 514 -1 }
+		ignoreinvisible = yes
+		margin_top = 8
+
+		hbox = {
+			vbox = {
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin_bottom = 8
+					button_checkbox_label = {
+						datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_invitations')]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+						tooltip = "dynasty_member_alerts_widget_invitations_tooltip"
+		
+						blockoverride "checkbox"
+						{
+							checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+						}
+		
+						blockoverride "text"
+						{
+							text = "dynasty_member_alerts_widget_invitations"
+						}
+					}
+					expand = {}
+				}
+			}
+			vbox = {
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin_bottom = 8
+					button_checkbox_label = {
+						datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_education')]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+						tooltip = "dynasty_member_alerts_widget_education_tooltip"
+		
+						blockoverride "checkbox"
+						{
+							checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+						}
+		
+						blockoverride "text"
+						{
+							text = "dynasty_member_alerts_widget_education"
+						}
+					}
+					expand = {}
+				}
+			}
+			vbox = {
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin_bottom = 8
+					button_checkbox_label = {
+						datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_marriage')]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+						tooltip = "dynasty_member_alerts_widget_marriage_tooltip"
+		
+						blockoverride "checkbox"
+						{
+							checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+						}
+		
+						blockoverride "text"
+						{
+							text = "dynasty_member_alerts_widget_marriage"
+						}
+					}
+					expand = {}
+				}
+			}
+			vbox = {
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin_bottom = 8
+					button_checkbox_label = {
+						datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_giving_land')]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+						tooltip = "dynasty_member_alerts_widget_give_lands_tooltip"
+		
+						blockoverride "checkbox"
+						{
+							checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+						}
+		
+						blockoverride "text"
+						{
+							text = "dynasty_member_alerts_widget_give_lands"
+						}
+					}
+					expand = {}
+				}
+			}
+		}
+	}
+}

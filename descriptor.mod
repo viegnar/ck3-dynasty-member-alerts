@@ -1,7 +1,9 @@
-version="1.0.0"
+version="2.0.0"
 tags={
 	"Utilities"
 	"Gameplay"
+	"Decisions"
+	"Character Focuses"
 }
 name="Dynasty Member Alerts"
 supported_version="1.7.*"

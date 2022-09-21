@@ -2,21 +2,29 @@
 	combine_into_one = yes
 	priority = 100
 	check_create_action = {
-		root.dynasty = {
-			every_dynasty_member = {
-				limit = {
-					root = {
-						is_character_interaction_potentially_accepted = {
-							recipient = prev
-							interaction = invite_to_court_interaction
+		if = {
+			limit = {
+				has_character_flag = is_organizing_dynasty_members
+				NOT = {
+					has_global_variable = dynasty_member_alerts_invitations_disabled
+				}
+				exists = dynasty
+			}
+			dynasty = {
+				every_dynasty_member = {
+					limit = {
+						root = {
+							is_character_interaction_potentially_accepted = {
+								recipient = prev
+								interaction = invite_to_court_interaction
+							}
 						}
 					}
-				}
-
-				try_create_important_action = {
-					important_action_type = action_dynasty_member_can_be_invited
-					actor = root
-					recipient = this
+					try_create_important_action = {
+						important_action_type = action_dynasty_member_can_be_invited
+						actor = root
+						recipient = this
+					}
 				}
 			}
 		}
