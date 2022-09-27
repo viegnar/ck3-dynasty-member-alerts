@@ -6,7 +6,7 @@
   action_dynasty_member_can_be_invited_combined_group_name: "Dynasty members can be invited"
   action_dynasty_member_can_be_invited_combined_group_label: "Dynasty members can be invited"
   action_dynasty_member_can_be_invited_combined_group_description: "Several of your [dynasty|E] members want to move to your court."
-  action_dynasty_member_can_be_invited_combined_label: "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
+  action_dynasty_member_can_be_invited_combined_label: "Your [actor.Custom2('RelationToMe', recipient)], [recipient.GetShortUINameNoTooltip]"
   action_dynasty_member_can_be_invited_combined_unimportant: "$action_dynasty_member_can_be_invited_unimportant$"
   action_dynasty_member_can_be_invited_unimportant: "@warning_icon!#X You should focus on something else first"
 
@@ -17,7 +17,7 @@
   action_dynasty_member_can_marry_combined_group_name: "Dynasty members can get married"
   action_dynasty_member_can_marry_combined_group_label: "Dynasty members can get married"
   action_dynasty_member_can_marry_combined_group_description: "Several of your [dynasty|E] members are eligible to be wed.\n\n#help Arranging [marriages|E] for them would benefit your [dynasty|E] and could let you form new [alliances|E].#!"
-  action_dynasty_member_can_marry_combined_label: "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
+  action_dynasty_member_can_marry_combined_label: "Your [actor.Custom2('RelationToMe', recipient)], [recipient.GetShortUINameNoTooltip]"
   action_dynasty_member_can_marry_combined_unimportant: "$action_dynasty_member_can_marry_unimportant$"
   action_dynasty_member_can_marry_unimportant: "@warning_icon!#X You should focus on marrying off your oldest children"
 
@@ -27,7 +27,7 @@
   action_can_assign_guardian_to_dynasty_kid_desc: "You can designate a [guardian|E] for [recipient.GetShortUIName].$action_can_assign_guardian_to_dynasty_kid_HELP$"
   action_can_assign_guardian_to_dynasty_kid_combined_group_description: "You can designate [guardians|E] for your children.$action_can_assign_guardian_to_dynasty_kid_HELP$"
   action_can_assign_guardian_to_dynasty_kid_label: "You can designate a guardian for [recipient.GetShortUINameNoTooltip]"
-  action_can_assign_guardian_to_dynasty_kid_combined_label: "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
+  action_can_assign_guardian_to_dynasty_kid_combined_label: "Your [actor.Custom2('RelationToMe', recipient)], [recipient.GetShortUINameNoTooltip]"
   action_can_assign_guardian_to_dynasty_kid_click: "#I Click to designate a [guardian|E] for [recipient.GetHerHim]#!"
   action_can_assign_guardian_to_dynasty_kid_combined_unimportant: "@warning_icon!#X Only your younger children lacks [guardians|E]#!"
   action_can_assign_guardian_to_dynasty_kid_unimportant: "@warning_icon!#X You have many older children#!"
@@ -39,7 +39,7 @@
   action_can_set_education_focus_to_dynasty_kid_combined_group_label: "Dynasty children need education focus"
   action_can_set_education_focus_to_dynasty_kid_combined_group_name: "Children need an [education_focus|E]."
   action_can_set_education_focus_to_dynasty_kid_combined_group_description: "You can choose [education_focus|E] for children of your dynasty."
-  action_can_set_education_focus_to_dynasty_kid_combined_label: "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
+  action_can_set_education_focus_to_dynasty_kid_combined_label: "Your [actor.Custom2('RelationToMe', recipient)], [recipient.GetShortUINameNoTooltip]"
   action_can_set_education_focus_to_dynasty_kid_click: "#I Click to choose an [education_focus|E] for [recipient.GetHerHim]#!"
 
   action_dynasty_member_can_be_landed: "[recipient.GetShortUINameNoTooltip] can be landed"
@@ -49,7 +49,7 @@
   action_dynasty_member_can_be_landed_combined_group_name: "Dynasty members can be landed"
   action_dynasty_member_can_be_landed_combined_group_label: "Dynasty members can be landed"
   action_dynasty_member_can_be_landed_combined_group_description: "Several of your [dynasty|E] members want land."
-  action_dynasty_member_can_be_landed_combined_label: "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
+  action_dynasty_member_can_be_landed_combined_label: "Your [actor.Custom2('RelationToMe', recipient)], [recipient.GetShortUINameNoTooltip]"
   action_dynasty_member_can_be_landed_combined_unimportant: "$action_dynasty_member_can_be_landed_unimportant$"
   action_dynasty_member_can_be_landed_unimportant: "@warning_icon!#X You should focus on someone else first"
 
@@ -59,7 +59,7 @@
   action_spread_witchcraft_in_your_house_combined_group_label: "House members can become witch"
   action_spread_witchcraft_in_your_house_combined_group_name: "$action_spread_witchcraft_in_your_house_combined_group_label$"
   action_spread_witchcraft_in_your_house_combined_group_description: "Several of your [house|E] members can be convinced to worship the Horned God."
-  action_spread_witchcraft_in_your_house_combined_label: "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
+  action_spread_witchcraft_in_your_house_combined_label: "Your [actor.Custom2('RelationToMe', recipient)], [recipient.GetShortUINameNoTooltip]"
   action_spread_witchcraft_in_your_house_click: "#I Click to start a [scheme|E]#!"
 
   enable_dynasty_member_alerts_decision: "Dynasty Member Alerts #N (DISABLED)#!"
