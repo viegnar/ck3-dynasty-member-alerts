@@ -77,3 +77,37 @@ dynasty_member_alerts_toggle_giving_land = {
 		}
 	}
 }
+
+dynasty_member_alerts_toggle_witchcraft = {
+	scope = character
+	is_shown = {
+		OR = {
+			has_trait = witch
+			any_secret = {
+				secret_type = secret_witch
+			}
+		}
+		NOT = {
+			has_global_variable = dynasty_member_alerts_witchcraft_disabled
+		}
+	}
+	is_valid = {
+		OR = {
+			has_trait = witch
+			any_secret = {
+				secret_type = secret_witch
+			}
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_global_variable = dynasty_member_alerts_witchcraft_disabled
+			}
+			remove_global_variable = dynasty_member_alerts_witchcraft_disabled
+		}
+		else = {
+			set_global_variable = dynasty_member_alerts_witchcraft_disabled
+		}
+	}
+}

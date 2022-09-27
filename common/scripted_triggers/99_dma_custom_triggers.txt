@@ -1,4 +1,19 @@
-﻿has_pressed_claims = {
+﻿is_swaying_nobody = {
+	any_scheme = {
+		OR = {
+			scheme_type = courting
+			scheme_type = befriend
+			scheme_type = seduce
+			scheme_type = sway
+			scheme_type = learn_language
+			scheme_type = elope
+			scheme_type = convert_to_witchcraft
+		}
+		count < 1
+	}
+}
+
+has_pressed_claims = {
 	any_claim = {
 		explicit = yes
 		pressed = yes

@@ -53,6 +53,15 @@
   action_dynasty_member_can_be_landed_combined_unimportant: "$action_dynasty_member_can_be_landed_unimportant$"
   action_dynasty_member_can_be_landed_unimportant: "@warning_icon!#X You should focus on someone else first"
 
+  action_spread_witchcraft_in_your_house: "[recipient.GetShortUINameNoTooltip] can become a witch"
+  action_spread_witchcraft_in_your_house_label: "$action_spread_witchcraft_in_your_house$"
+  action_spread_witchcraft_in_your_house_desc: "Your [actor.Custom2('RelationToMe', recipient)] [recipient.GetShortUIName] is curious about your secret practises, you can teach [recipient.GetHerHim] about the ways of the Horned God."
+  action_spread_witchcraft_in_your_house_combined_group_label: "House members can become witch"
+  action_spread_witchcraft_in_your_house_combined_group_name: "$action_spread_witchcraft_in_your_house_combined_group_label$"
+  action_spread_witchcraft_in_your_house_combined_group_description: "Several of your [house|E] members can be convinced to worship the Horned God."
+  action_spread_witchcraft_in_your_house_combined_label: "[recipient.GetRelationToString( GetPlayer )], [recipient.GetShortUINameNoTooltip]"
+  action_spread_witchcraft_in_your_house_click: "#I Click to start a [scheme|E]#!"
+
   enable_dynasty_member_alerts_decision: "Dynasty Member Alerts #N (DISABLED)#!"
   enable_dynasty_member_alerts_decision_desc: "My [ROOT.Char.GetLadyLord], I've got some reports about some kinsmen of yours who are living like vagabonds. They're tarnishing your dynasty reputation. You may consider inviting them to your court, educate their children, give them some duties or wed them to nobles of the realm."
   enable_dynasty_member_alerts_decision_tooltip: "Enable dynasty member alerts"
@@ -73,3 +82,5 @@
   dynasty_member_alerts_widget_marriage_tooltip: "I want to arrange marriages for them"
   dynasty_member_alerts_widget_give_lands: "Give Lands"
   dynasty_member_alerts_widget_give_lands_tooltip: "I want to grant titles to them"
+  dynasty_member_alerts_widget_witchcraft: "Witchcraft"
+  dynasty_member_alerts_widget_witchcraft_tooltip: "I want to create a Witch Coven"

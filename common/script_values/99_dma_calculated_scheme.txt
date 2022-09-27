@@ -1,0 +1,460 @@
+﻿dma_get_opinion = {
+	if = {
+		limit = {
+			scope:target = {
+				save_temporary_opinion_value_as = {
+					name = opinion_of_root
+					target = prev
+				}
+			}
+			always = yes
+		}
+		add = scope:opinion_of_root
+	}
+}
+
+dma_get_bigger_learning = {
+	if = {
+		limit = {
+			learning > scope:target.learning
+		}
+		add = learning
+	}
+	else = {
+		add = scope:target.learning
+	}
+}
+
+dma_witch_scheme_agent_join_chance = {
+	# Base Reluctance, including negative AI Energy
+	add = {
+		value = -20
+		if = {
+			limit = {
+				ai_energy < 0
+			}
+			add = {
+				value = ai_energy
+				multiply = 0.5
+			}
+		}
+	}
+
+	#Is Owner sending a gift in the invite interaction?
+	if = {
+		limit = {
+			exists = scope:gift
+			always = scope:gift
+			NOT = {
+				OR = {
+					scope:target = { is_parent_of = root }
+					root = { is_parent_of = scope:target }
+				}
+			}
+		}
+		add = 10
+	}
+
+	#Target will never scheme against themselves
+	if = {
+		limit = {
+			this = scope:target
+		}
+		add = -1000
+	}
+
+	#Target is not diplomatically available
+	if = {
+		limit = {
+			is_busy_in_events_localised = no
+		}
+		add = -1000
+	}
+
+	#Not a valid witch
+	if = {
+		limit = {
+			save_temporary_scope_as = witch_agent
+			NOT = { scope:owner = { knows_about_character_being_witch_trigger = { CHARACTER = scope:witch_agent } } }
+		}
+		add = -1000
+	}
+	if = {
+		limit = {
+			save_temporary_scope_as = witch_agent
+			scope:owner = {
+				knows_about_character_being_witch_trigger = {
+					CHARACTER = scope:witch_agent
+				}
+			}
+			NOT = { faith = scope:target.faith }
+		}
+		add = -50
+	}
+	
+	#I am a witch!
+	if = {
+		limit = {
+			scope:owner = { knows_about_character_being_witch_trigger = { CHARACTER = scope:witch_agent } }
+		}
+		add = 50
+	}
+
+	# Cowardice
+	if = {
+		limit = {
+			ai_boldness < 0
+		}
+		add = ai_boldness
+	}
+
+	#How much does Agent like Owner?
+	if = {
+		limit = {
+			NOT = { this = scope:owner }
+			save_temporary_opinion_value_as = {
+				name = opinion_of_owner
+				target = scope:owner
+			}
+		}
+		add = {
+			value = scope:opinion_of_owner
+			multiply = 0.25
+		}
+	}
+}
+
+predicted_success_chance_for_witch_scheme_multiplier = {
+	add = 100
+	divide = 100
+}
+
+predicted_success_chance_for_witch_scheme = {
+	#Coven leader
+	if = {
+		limit = {
+			exists = house
+			house = { has_house_modifier = witch_coven }
+		}
+		add = 20
+		desc = SCHEME_WITCH_COVEN
+	}
+
+	#Learning based
+	add = {
+		value = dma_get_bigger_learning
+		multiply = 3
+		desc = "SCHEME_LEARNING_MODIFIER"
+	}
+
+	#Their zeal
+	subtract = scope:target.ai_zeal
+
+	#Opinion
+	add = {
+		add = {
+			value = dma_get_opinion
+			multiply = 1.5
+			subtract = {
+				value = dma_get_opinion
+				multiply = 1.5
+				modulo = 5
+			}
+		}
+		min = -50
+		max = 50
+	}
+
+	#Attraction
+	if = {
+		limit = {
+			attraction >= 10
+			attraction < 20
+			scope:target = { is_attracted_to_gender_of = prev }
+		}
+		add = 10
+		desc = SCHEME_ATTRACTION
+	}
+	if = {
+		limit = {
+			attraction >= 20
+			attraction < 30
+			scope:target = { is_attracted_to_gender_of = prev }
+		}
+		add = 20
+		desc = SCHEME_ATTRACTION
+	}
+	if = {
+		limit = {
+			attraction >= 30
+			scope:target = { is_attracted_to_gender_of = prev }
+		}
+		add = 30
+		desc = SCHEME_ATTRACTION
+	}
+
+	#Target traits
+	if = {
+		limit = {
+			scope:target = { has_trait = zealous }
+		}
+		add = -50
+		desc = "SCHEME_TRAIT_ZEALOUS"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = devoted }
+		}
+		add = -30
+		desc = "SCHEME_TRAIT_DEVOTED"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = order_member }
+		}
+		add = -30
+		desc = "SCHEME_TRAIT_ORDER_MEMBER"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = craven }
+		}
+		add = -10
+		desc = "SCHEME_TRAIT_CRAVEN"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = paranoid }
+		}
+		add = -20
+		desc = "SCHEME_TRAIT_PARANOID"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = lifestyle_reveler }
+		}
+		add = 10
+		desc = "SCHEME_REVELER"
+	}
+	if = {
+		limit = {
+			scope:target = { has_intrigue_lifestyle_trait_trigger = yes }
+		}
+		add = 10
+		desc = "SCHEME_IS_A_SCHEMER"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = seducer }
+		}
+		add = 10
+		desc = "SCHEME_TRAIT_TARGET_SEDUCER"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = lifestyle_mystic }
+		}
+		add = 20
+		desc = "SCHEME_TRAIT_MYSTIC"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = lifestyle_herbalist }
+		}
+		add = 10
+		desc = "SCHEME_TRAIT_HERBALIST"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = lustful }
+		}
+		add = 5
+		desc = "SCHEME_LUSTFUL_TRAIT"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = deceitful }
+		}
+		add = 5
+		desc = "SCHEME_TRAIT_DECEITFUL"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = ambitious }
+		}
+		add = 5
+		desc = "SCHEME_TRAIT_AMBITIOUS"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = cynical }
+		}
+		add = 5
+		desc = "SCHEME_TRAIT_CYNICAL"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = trusting }
+		}
+		add = 5
+		desc = "SCHEME_TRAIT_TRUSTING"
+	}
+	if = {
+		limit = {
+			scope:target = { has_trait = excommunicated }
+		}
+		add = 10
+		desc = "SCHEME_TRAIT_EXCOMMUNICATED"
+	}
+
+	# House Personal Scheme Success Chance on Cultural Parameter
+	if = {
+		limit = {
+			exists = this.house
+			exists = scope:target.house
+			this.culture = {
+				has_cultural_parameter = cultural_house_personal_scheme_success_chance
+			}
+			scope:target.house = this.house
+		}
+		add = cultural_house_personal_scheme_success_chance
+		desc = KIN_PARAMETER_DESC
+	}
+
+	save_temporary_scope_as = owner
+
+	# paranoid resistance
+	if = {
+		limit = {
+			scope:target = { has_trait = paranoid }
+		}
+		subtract = 25
+	}
+
+	# agents
+	if = {
+		limit = {
+			scope:target = {
+				is_ruler = yes
+			}
+		}
+		scope:target = {
+			save_temporary_scope_as = court_owner
+		}
+	}
+	else_if = {
+		limit = {
+			exists = scope:target.liege
+		}
+		scope:target.liege = {
+			save_temporary_scope_as = court_owner
+		}
+	}
+
+	if = {
+		limit = {
+			exists = scope:court_owner
+		}
+		scope:court_owner = {
+			every_courtier_or_guest = {
+				limit = {
+					dma_witch_scheme_agent_join_chance > 0
+				}
+
+				if = { # SCHEME_AGENT_IS_SPOUSE
+					limit = {
+						is_spouse_of = scope:target
+					}
+					add = 50
+				}
+				else_if = { # SCHEME_AGENT_IS_BEST_FRIEND
+					limit = {
+						has_relation_best_friend = scope:target
+					}
+					add = 50
+				}
+				else_if = { # SCHEME_AGENT_IS_GUARDIAN
+					limit = {
+						has_relation_guardian = scope:target
+					}
+					add = 50
+				}
+				else_if = { # SCHEME_AGENT_IS_FRIEND
+					limit = {
+						has_relation_friend = scope:target
+					}
+					add = 30
+				}
+				else_if = { # SCHEME_AGENT_IS_CONCUBINE
+					limit = {
+						is_concubine_of = scope:target
+					}
+					add = 30
+				}
+				else_if = { # SCHEME_AGENT_IS_LOVER
+					limit = {
+						has_relation_lover = scope:target
+					}
+					add = 30
+				}
+				else_if = { # SCHEME_AGENT_IS_SPYMASTER
+					limit = {
+						scope:target = {
+							is_ruler = yes
+						}
+						has_council_position = councillor_spymaster
+						exists = scope:target.cp:councillor_spymaster
+						scope:target.cp:councillor_spymaster = this
+					}
+					add = 30
+				}
+				else_if = { # SCHEME_AGENT_IS_SPYMASTER_IN_MY_COURT
+					limit = {
+						scope:target = {
+							is_ruler = no
+						}
+						has_council_position = councillor_spymaster
+						exists = scope:court_owner.cp:councillor_spymaster
+						scope:court_owner.cp:councillor_spymaster = this
+					}
+					add = 30
+				}
+				else_if = { # SCHEME_AGENT_IS_CLOSE_KIN
+					limit = {
+						is_close_family_of = scope:target
+					}
+					add = 20
+				}
+				else_if = { # SCHEME_AGENT_IS_POWERFUL_VASSAL
+					limit = {
+						is_powerful_vassal_of = scope:target
+					}
+					add = 15
+				}
+				else_if = { # SCHEME_AGENT_IS_EXTENDED_FAMILY
+					limit = {
+						is_extended_family_of = scope:target
+					}
+					add = 15
+				}
+				else_if = { # SCHEME_AGENT_IS_COURTIER_MY_COURT
+					limit = {
+						scope:court_owner = scope:owner
+					}
+					add = 10
+				}
+				else_if = { # SCHEME_AGENT_IS_FELLOW_COURTIER
+					limit = {
+						is_ruler = no
+						scope:court_owner = this.liege
+					}
+					add = 10
+				}
+				else = { # SCHEME_AGENT_IS_COURTIER
+					add = 5
+				}
+			}
+		}
+	}
+	multiply = predicted_success_chance_for_witch_scheme_multiplier
+}

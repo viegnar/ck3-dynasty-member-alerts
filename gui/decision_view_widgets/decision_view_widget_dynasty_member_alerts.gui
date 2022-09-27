@@ -2,6 +2,87 @@ dynasty_member_alerts_options_widget = {}
 
 types DynastyMemberAlertsDecisionWidget
 {
+	type dma_toggle_invite_module = button_checkbox_label
+	{
+		datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_invitations')]"
+		onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		tooltip = "dynasty_member_alerts_widget_invitations_tooltip"
+
+		blockoverride "checkbox"
+		{
+			checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		}
+
+		blockoverride "text"
+		{
+			text = "dynasty_member_alerts_widget_invitations"
+		}
+	}
+	type dma_toggle_education_module = button_checkbox_label
+	{
+		datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_education')]"
+		onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		tooltip = "dynasty_member_alerts_widget_education_tooltip"
+
+		blockoverride "checkbox"
+		{
+			checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		}
+
+		blockoverride "text"
+		{
+			text = "dynasty_member_alerts_widget_education"
+		}
+	}
+	type dma_toggle_marriage_module = button_checkbox_label
+	{
+		datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_marriage')]"
+		onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		tooltip = "dynasty_member_alerts_widget_marriage_tooltip"
+
+		blockoverride "checkbox"
+		{
+			checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		}
+
+		blockoverride "text"
+		{
+			text = "dynasty_member_alerts_widget_marriage"
+		}
+	}
+	type dma_toggle_giving_land_module = button_checkbox_label
+	{
+		datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_giving_land')]"
+		onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		tooltip = "dynasty_member_alerts_widget_give_lands_tooltip"
+
+		blockoverride "checkbox"
+		{
+			checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		}
+
+		blockoverride "text"
+		{
+			text = "dynasty_member_alerts_widget_give_lands"
+		}
+	}
+	type dma_toggle_witchcraft_module = button_checkbox_label
+	{
+		datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_witchcraft')]"
+		onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		tooltip = "dynasty_member_alerts_widget_witchcraft_tooltip"
+
+		blockoverride "checkbox"
+		{
+			checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		}
+
+		blockoverride "text"
+		{
+			text = "dynasty_member_alerts_widget_witchcraft"
+		}
+	}
 	type dynasty_member_alerts_options_widget = flowcontainer
 	{
 		name = "decision_view_widget_dynasty_member_alerts"
@@ -12,93 +93,46 @@ types DynastyMemberAlertsDecisionWidget
 		margin_top = 8
 
 		hbox = {
+			layoutpolicy_vertical = expanding
 			vbox = {
+				layoutpolicy_vertical = expanding
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					margin_bottom = 8
-					button_checkbox_label = {
-						datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_invitations')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-						tooltip = "dynasty_member_alerts_widget_invitations_tooltip"
-		
-						blockoverride "checkbox"
-						{
-							checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-						}
-		
-						blockoverride "text"
-						{
-							text = "dynasty_member_alerts_widget_invitations"
-						}
-					}
+					dma_toggle_invite_module = {}
+					expand = {}
+				}
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin_bottom = 8
+					dma_toggle_education_module = {}
 					expand = {}
 				}
 			}
 			vbox = {
+				layoutpolicy_vertical = expanding
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					margin_bottom = 8
-					button_checkbox_label = {
-						datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_education')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-						tooltip = "dynasty_member_alerts_widget_education_tooltip"
-		
-						blockoverride "checkbox"
-						{
-							checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-						}
-		
-						blockoverride "text"
-						{
-							text = "dynasty_member_alerts_widget_education"
-						}
-					}
+					dma_toggle_marriage_module = {}
+					expand = {}
+				}
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin_bottom = 8
+					dma_toggle_giving_land_module = {}
 					expand = {}
 				}
 			}
 			vbox = {
+				layoutpolicy_vertical = expanding
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					margin_bottom = 8
-					button_checkbox_label = {
-						datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_marriage')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-						tooltip = "dynasty_member_alerts_widget_marriage_tooltip"
-		
-						blockoverride "checkbox"
-						{
-							checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-						}
-		
-						blockoverride "text"
-						{
-							text = "dynasty_member_alerts_widget_marriage"
-						}
-					}
+					dma_toggle_witchcraft_module = {}
 					expand = {}
 				}
-			}
-			vbox = {
-				hbox = {
-					layoutpolicy_horizontal = expanding
-					margin_bottom = 8
-					button_checkbox_label = {
-						datacontext = "[GetScriptedGui('dynasty_member_alerts_toggle_giving_land')]"
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-						tooltip = "dynasty_member_alerts_widget_give_lands_tooltip"
-		
-						blockoverride "checkbox"
-						{
-							checked = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-						}
-		
-						blockoverride "text"
-						{
-							text = "dynasty_member_alerts_widget_give_lands"
-						}
-					}
-					expand = {}
-				}
+				expand = {}
 			}
 		}
 	}
