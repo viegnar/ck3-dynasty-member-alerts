@@ -32,15 +32,20 @@ is_going_to_inherit_titles = {
 	}
 }
 
-is_heir_of_their_parents = {
-	OR = {
-		AND = {
-			exists = father
-			is_heir_of = father
+might_get_a_pressed_claim = {
+	trigger_if = {
+		limit = {
+			is_female = yes
 		}
-		AND = {
-			exists = mother
-			is_heir_of = mother
+		any_parent = {
+			is_ruler = yes
+			NOT = { has_realm_law = male_only_law }
+		}
+	}
+	trigger_else = {
+		any_parent = {
+			is_ruler = yes
+			NOT = { has_realm_law = female_only_law }
 		}
 	}
 }
@@ -49,6 +54,7 @@ is_not_an_heir_parent = {
 	is_going_to_inherit_titles = no
 	has_pressed_claims = no
 	has_implicit_claims = no
+	might_get_a_pressed_claim = no
 }
 
 is_not_an_actual_heir = {
@@ -57,17 +63,7 @@ is_not_an_actual_heir = {
 	is_claimant = no
 	is_going_to_inherit_titles = no
 	any_parent = {
-		trigger_if = {
-			limit = {
-				is_ruler = yes
-			}
-			prev = {
-				is_heir_of_their_parents = no
-			}
-		}
-		trigger_else = {
-			is_not_an_heir_parent = yes
-		}
+		is_not_an_heir_parent = yes
 		count = all
 	}
 }
