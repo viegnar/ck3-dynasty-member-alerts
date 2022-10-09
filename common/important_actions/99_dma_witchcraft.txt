@@ -7,7 +7,7 @@
 			limit = {
 				has_character_flag = is_organizing_dynasty_members
 				NOT = {
-					has_global_variable = dynasty_member_alerts_witchcraft_disabled
+					has_character_flag = dynasty_member_alerts_witchcraft_disabled
 				}
 				is_swaying_nobody = yes
 				OR = {
